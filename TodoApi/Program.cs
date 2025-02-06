@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using TodoApi;
 
 var builder = WebApplication.CreateBuilder(args);
+
 //ההזרקה
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"),
@@ -16,8 +17,6 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod()    //מתיר GET, POST, PUT, DELETE וכו'
               .AllowAnyHeader());  //מתיר כל כותרות הבקשה
 });
-
-//var app = builder.Build();
 
 //swagger:
 builder.Services.AddEndpointsApiExplorer();
@@ -84,7 +83,6 @@ app.MapDelete("/tasks/{id}",async(int id,ToDoDbContext db)=>{
   await db.SaveChangesAsync();
   return Results.NoContent();
 });
-//defalt:
-// app.MapGet("/", ()=>"Hello");
+
 
 app.Run();
