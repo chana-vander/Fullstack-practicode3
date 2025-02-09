@@ -32,14 +32,15 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 //הפעלת Swagger במצב Development
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDo API v1");
     });
-}
+//}
+
 app.UseCors("AllowAll");
 app.UseRouting();
 
@@ -84,5 +85,6 @@ app.MapDelete("/tasks/{id}",async(int id,ToDoDbContext db)=>{
   return Results.NoContent();
 });
 
+app.MapGet("/",()=>"AuthServer Api is running!");
 
 app.Run();
