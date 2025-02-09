@@ -16,10 +16,10 @@ builder.Services.AddDbContext<ToDoDbContext>(options =>
 //cors:
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
-        policy.AllowAnyOrigin()    //מתיר קריאות מכל כתובת
-              .AllowAnyMethod()    //מתיר GET, POST, PUT, DELETE וכו'
-              .AllowAnyHeader());  //מתיר כל כותרות הבקשה
+    options.AddPolicy("AllowClient", policy =>
+        policy.WithOrigins("https://authclient-f5q9.onrender.com") // התאימי ל-URL של הקליינט שלך!
+              .AllowAnyMethod()
+              .AllowAnyHeader());
 });
 
 //swagger:
