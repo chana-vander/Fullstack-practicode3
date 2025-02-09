@@ -5,8 +5,12 @@ using TodoApi;
 var builder = WebApplication.CreateBuilder(args);
 
 //ההזרקה
+// builder.Services.AddDbContext<ToDoDbContext>(options =>
+//     options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"),
+//     new MySqlServerVersion(new Version(8,0,33))));
+
 builder.Services.AddDbContext<ToDoDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"),
+    options.UseMySql(builder.Configuration.GetConnectionString("server=buiercsasy7ihrkvjqvi-mysql.services.clever-cloud.com;port=3306;user=uazkdpcc8m7o3nrk;password=Dm8ZwOuwj3RmqJp34ZV2;database=buiercsasy7ihrkvjqvi"),
     new MySqlServerVersion(new Version(8,0,33))));
 
 //cors:
