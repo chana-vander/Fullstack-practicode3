@@ -165,5 +165,5 @@ app.UseCors("AllowSpecificOrigin"); // משתמשים בהגדרה "AllowSpecifi
 // הפעלת Swagger
 app.UseSwagger();
 app.UseSwaggerUI();
-app.MapGet("/",()=>"helloruti&rivki");
+app.MapGet("/",()=>"hello everyone");
 app.Run();
